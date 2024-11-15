@@ -15,44 +15,43 @@ const tokens = [
 ]
 
 export function FloatingTokens() {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  // Use fixed initial positions
+  const initialPositions = tokens.map(() => ({
+    x: 0,
+    y: 0
+  }))
+
+  const [positions, setPositions] = useState(initialPositions)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    // Set dimensions only after component mounts
-    setDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight
-    })
-
-    const handleResize = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight
-      })
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    setIsMounted(true)
+    // Generate random positions only after mount
+    setPositions(tokens.map(() => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight
+    })))
   }, [])
 
+  if (!isMounted) {
+    return null // or return a loading state
+  }
+
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 -z-10 overflow-hidden">
       {tokens.map((token, index) => (
         <motion.div
           key={index}
           className="absolute"
-          initial={{ 
-            x: Math.random() * (dimensions.width || 1000), 
-            y: Math.random() * (dimensions.height || 800)
-          }}
+          initial={initialPositions[index]}
           animate={{
-            x: [null, Math.random() * (dimensions.width || 1000)],
-            y: [null, Math.random() * (dimensions.height || 800)],
+            x: positions[index].x,
+            y: positions[index].y,
           }}
           transition={{
-            duration: Math.random() * 10 + 20,
+            duration: 20,
             repeat: Infinity,
-            ease: "linear"
+            repeatType: "reverse"
           }}
         >
           <Image
