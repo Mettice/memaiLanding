@@ -2,6 +2,9 @@
 
 ![MEMAI Landing Preview](https://raw.githubusercontent.com/Mettice/memaiLanding/main/public/images/landing-preview.png)
 
+## 🌐 Live Site
+[MEMAI Bot - AI-Powered Meme Coin Signals](https://memaibot.io)
+
 ## Overview
 MEMAI is an AI-Powered Meme Coin Signals platform that provides real-time signals for profitable meme coins across Solana, Ethereum, and BSC with a 90%+ success rate.
 
@@ -16,9 +19,7 @@ MEMAI is an AI-Powered Meme Coin Signals platform that provides real-time signal
 - Next.js
 - TypeScript
 - Tailwind CSS
-
-## Local Development
-
+- Framer Motion
 
 ## License
 Private - For viewing purposes only
