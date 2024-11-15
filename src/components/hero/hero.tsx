@@ -1,7 +1,7 @@
 "use client"
 import { motion } from 'framer-motion'
 import { Button } from "../../components/ui/button"
-import { ArrowRight, Rocket, Shield, LineChart } from "lucide-react"
+import { Rocket, Shield, LineChart } from "lucide-react"
 
 const containerVariants = {
   hidden: { opacity: 0 },
