@@ -19,6 +19,6 @@ MEMAI is an AI-Powered Meme Coin Signals platform that provides real-time signal
 
 ## Local Development
 
-T
+
 ## License
 Private - For viewing purposes only

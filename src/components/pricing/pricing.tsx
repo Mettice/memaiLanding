@@ -14,7 +14,8 @@ const tiers = [
       "Basic support"
     ],
     cta: "Get Started",
-    highlighted: false
+    highlighted: false,
+    channelLink: "https://t.me/memaitrade"
   },
   {
     name: "Premium",
@@ -32,7 +33,8 @@ const tiers = [
       "Custom alerts"
     ],
     cta: "Start Premium",
-    highlighted: true
+    highlighted: true,
+    channelLink: "https://t.me/+AHeONWion8ZjNzQ0"
   },
   {
     name: "Professional",
@@ -50,7 +52,8 @@ const tiers = [
       "White-label options"
     ],
     cta: "Contact Sales",
-    highlighted: false
+    highlighted: false,
+    channelLink: "https://t.me/+qzHUngmWh0gzODE0"
   }
 ]
 
@@ -109,13 +112,19 @@ export function Pricing() {
                   ))}
                 </ul>
               </div>
-              <Button
-                className={`mt-8 w-full ${
-                  tier.highlighted ? '' : 'variant-outline'
-                }`}
+              <a 
+                href={tier.channelLink}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {tier.cta}
-              </Button>
+                <Button
+                  className={`mt-8 w-full ${
+                    tier.highlighted ? '' : 'variant-outline'
+                  }`}
+                >
+                  {tier.cta}
+                </Button>
+              </a>
             </div>
           ))}
         </div>
